@@ -6,7 +6,7 @@
 
 This is a AngularJS Logger service provider plugin. After integrating this service with your application you will be able to get informative logs as well as turn them off in production. 
 
-More information can be found here: <a href="http://www.webdeveasy.com/logger-for-angularjs" target="_blank">http://www.webdeveasy.com/logger-for-angularjs</a>
+More information can be found here: <a href="http://www.webdeveasy.com/angularjs-logger-service-provider" target="_blank">http://www.webdeveasy.com/logger-for-angularjs</a>
 
 ## Usage
 
@@ -37,7 +37,7 @@ More information can be found here: <a href="http://www.webdeveasy.com/logger-fo
         logger.debug('debug', 'This is a debug for line {0}', [ 8 ]);
     }]);
 	```
-	
+
 * * *
 
 Copyright (c) 2014 naorye
