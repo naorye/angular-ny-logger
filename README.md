@@ -12,17 +12,22 @@ More information can be found here: <a href="http://www.webdeveasy.com/logger-fo
 
 1. Include angular-ny-logger.js in your JavaScript files.
 2. Add `ny.logger` module as a dependency to your module:
+
     ```
     angular.module('YourModule', ['ny.logger'])
     ```
+
 3. Make a configuration block that turns on or off logging:
+
     ```
     module.config(['LoggerProvider', function(LoggerProvider) {
         // We don't want the Logger service to be enabled in production
         LoggerProvider.enabled(!isProduction);
     }]);
     ```
+
 4. Start logging like a pro with informative logs:
+
     ```
     module.controller('ExampleController', ['Logger', function(Logger) {
         var logger = Logger.getInstance('ExampleController');
@@ -32,6 +37,7 @@ More information can be found here: <a href="http://www.webdeveasy.com/logger-fo
         logger.debug('debug', 'This is a debug for line {0}', [ 8 ]);
     }]);
 	```
+	
 * * *
 
 Copyright (c) 2014 naorye
