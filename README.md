@@ -16,21 +16,21 @@ More information can be found here: <a href="http://www.webdeveasy.com/logger-fo
     angular.module('YourModule', ['ny.logger'])
     ```
 3. Make a configuration block that turns on or off logging:
-    ```   
-	module.config(['LoggerProvider', function(LoggerProvider) {   
-		// We don't want the Logger service to be enabled in production   
-   		LoggerProvider.enabled(!isProduction);   
-   	}]);   
+    ```
+    module.config(['LoggerProvider', function(LoggerProvider) {
+        // We don't want the Logger service to be enabled in production
+        LoggerProvider.enabled(!isProduction);
+    }]);
     ```
 4. Start logging like a pro with informative logs:
     ```
-	.controller('ExampleController', ['Logger', function(Logger) {   
-		var logger = Logger.getInstance('ExampleController');   
-		logger.log('This is a log');   
-		logger.warn('warn', 'This is a warn');   
-		logger.error('This is a {0} error! {1}', [ 'big', 'just kidding' ]);   
-		logger.debug('debug', 'This is a debug for line {0}', [ 8 ]);   
-  	}]);
+    module.controller('ExampleController', ['Logger', function(Logger) {
+        var logger = Logger.getInstance('ExampleController');
+        logger.log('This is a log');
+        logger.warn('warn', 'This is a warn');
+        logger.error('This is a {0} error! {1}', [ 'big', 'just kidding' ]);
+        logger.debug('debug', 'This is a debug for line {0}', [ 8 ]);
+    }]);
 	```
 * * *
 
