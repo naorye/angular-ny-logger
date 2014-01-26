@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
+   <script src="../angular-ny-logger.js"></script>
+</head>
+<body>
+	Please open console to see the logging
+	<div id="app1" ng-controller="ExampleController"></div>
+	<div id="app2" ng-controller="ExampleController"></div>
+
+	<script>
+	   	angular.module('AppWithLoggerOn', ['ny.logger'])
+	   		.config(['LoggerProvider', function(LoggerProvider) {
+	   			LoggerProvider.enabled(true);
+	   		}])
+	   		.controller('ExampleController', ['Logger', function(Logger) {
+				var logger = Logger.getInstance('AppWithLoggerOn');
+				logger.log('This is a log');
+				logger.warn('warn', 'This is a warn');
+				logger.error('This is a {0} error! {1}', [ 'big', 'just kidding' ]);
+				logger.debug('debug', 'This is a debug for line {0}', [ 8 ]);
+	   		}]);
+   		angular.bootstrap(document.getElementById('app1'), ['AppWithLoggerOn']);
+
+   		angular.module('AppWithLoggerOff', ['ny.logger'])
+	   		.config(['LoggerProvider', function(LoggerProvider) {
+	   			LoggerProvider.enabled(false);
+	   		}])
+	   		.controller('ExampleController', ['Logger', function(Logger) {
+				var logger = Logger.getInstance('AppWithLoggerOff');
+				logger.log('This is a log');
+				logger.warn('warn', 'This is a warn');
+				logger.error('This is a {0} error! {1}', [ 'big', 'just kidding' ]);
+				logger.debug('debug', 'This is a debug for line {0}', [ 8 ]);
+	   		}]);
+        angular.bootstrap(document.getElementById('app2'), ['AppWithLoggerOff']);
+   </script>
+</body>
+</html>
