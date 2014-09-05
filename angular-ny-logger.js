@@ -1,4 +1,5 @@
 angular.module('ny.logger', []).provider('Logger', [function () {
+
     var isEnabled = true;
     this.enabled = function(_isEnabled) {
         isEnabled = !!_isEnabled;
@@ -53,7 +54,8 @@ angular.module('ny.logger', []).provider('Logger', [function () {
                         break;
                 }
 
-                $log[originalFn].call(null, Logger.supplant(message, supplantData));
+                var params = (isObject(supplantData)) ? [message, supplantData] : [Logger.supplant(message, supplantData)];
+                $log[originalFn].apply(null, params);
             },
             log: function() {
                 this._log('log', arguments);
@@ -73,4 +75,8 @@ angular.module('ny.logger', []).provider('Logger', [function () {
         };
         return Logger;
     }];
+
+    function isObject(element){
+        return (element.constructor.toString().indexOf("Object") > -1);
+    }
 }]);
