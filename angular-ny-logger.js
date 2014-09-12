@@ -77,6 +77,7 @@ angular.module('ny.logger', []).provider('Logger', [function () {
     }];
 
     function isObject(element){
-        return (element.constructor.toString().indexOf("Object") > -1);
+        var elemStr = ( !angular.isUndefined(element) && !angular.isUndefined(element.constructor) ) ? element.constructor.toString() : "";
+        return (elemStr.indexOf("Object") > -1);
     }
 }]);
