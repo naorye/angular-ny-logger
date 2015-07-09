@@ -21,9 +21,9 @@ angular.module('ny.logger', []).provider('Logger', [function () {
         };
         Logger.getFormattedTimestamp = function(date) {
            return Logger.supplant('{0}:{1}:{2}:{3}', [
-                date.getHours(),
-                date.getMinutes(),
-                date.getSeconds(),
+                date.getHours() < 10 ? "0" + date.getHours() : date.getHours(),
+                date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes(),
+                date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds(),
                 date.getMilliseconds()
             ]);
         };
